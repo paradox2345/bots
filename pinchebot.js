@@ -6,3 +6,10 @@ const cliente= new Client({
             Intents.FLAGS.GUILD_VOICE_STATES
           ]
 });
+const prefix = "--#";
+cliente.on('messageCreate', message => {
+  if (!message.content.startsWith(prefix)) return;
+   if (message.content==="crear") {
+        console.log("todo bien por ahora);
+      })
+  })
