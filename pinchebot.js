@@ -1,4 +1,4 @@
-const { Client, Intents }= require('discord.js');
+onst { Client, Intents }= require('discord.js');
 
 const cliente= new Client({
   intents: [Intents.FLAGS.GUILDS,
@@ -6,16 +6,11 @@ const cliente= new Client({
             Intents.FLAGS.GUILD_VOICE_STATES
           ]
 });
-const prefix = "--#";
-cliente.on('messageCreate', message => {
-  if (!message.content.startsWith(prefix)) return;
-   if (message.content==="crear") {
-        console.log("todo bien por ahora);
-      })
-  })
 
-  
-  cliente.on('voiceStateUpdate', (oldState, newState) => {
+
+
+
+cliente.on('voiceStateUpdate', (oldState, newState) => {
 
 
       const joined =!!newState.channelId;
@@ -32,29 +27,34 @@ cliente.on('messageCreate', message => {
       voiceChannel.delete();
       }
       else {
+        console.log(cosi);
         console.log("mantener abierto");
       }
 
 
 });
-  
-  
-    function alf(primero){
+
+ const prefix = "--@";
+
+  function alf(primero){
     const palabras=primero.split(" ", 3);
     const [first,second,tird]= palabras;
-      if (first=="--@crear" && second < 5 && tird.length < 8) {
-       return  true;
-       }
+
+   if (first=="--@crear" && second < 5 && tird.length < 7) {
+     return  true;
+   }
    else {
      console.log("comando incorrecto")
    }
  }
-  
+
+
 cliente.on('messageCreate', message => {
   if (!message.content.startsWith(prefix)) return;
+
    if (alf(message.content)) {
      const dividir=message.content.split(" ", 3);
-     const [namae,ichido,sanmae]=dividir;
+      const [namae,ichido,sanmae]=dividir;
     message.guild.channels.create(sanmae, {
  type: 'GUILD_VOICE',
  parent: '891449034735222795' ,
